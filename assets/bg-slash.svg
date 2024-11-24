@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+  width="90"
+  height="90"
+  viewBox="0 0 90 90"
+  version="1.1"
+  id="svg1"
+  inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+  sodipodi:docname="a3.svg"
+  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:svg="http://www.w3.org/2000/svg"
+>
+  <sodipodi:namedview
+    id="namedview1"
+    pagecolor="#ffffff"
+    bordercolor="#000000"
+    borderopacity="0.25"
+    inkscape:showpageshadow="2"
+    inkscape:pageopacity="0.0"
+    inkscape:pagecheckerboard="true"
+    inkscape:deskcolor="#d1d1d1"
+    inkscape:document-units="mm"
+    inkscape:zoom="8.6590909"
+    inkscape:cx="50.351706"
+    inkscape:cy="46.136483"
+    inkscape:window-width="2560"
+    inkscape:window-height="1417"
+    inkscape:window-x="-8"
+    inkscape:window-y="-8"
+    inkscape:window-maximized="1"
+    inkscape:current-layer="layer1"
+  />
+  <defs id="defs1" />
+  <g inkscape:label="图层 1" inkscape:groupmode="layer" id="layer1">
+    <path
+      style="
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 12;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: none;
+        stroke-opacity: 0.60000002;
+        paint-order: stroke fill markers;
+      "
+      d="M 82,8 8,82"
+      id="path1"
+      sodipodi:nodetypes="cc"
+    />
+  </g>
+</svg>
