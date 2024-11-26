@@ -1,37 +1,36 @@
-.content {
-  & .left {
-    display: flex;
-    flex-direction: row-reverse; /* 图片置底 */
-  }
+.content .left {
+  display: flex;
+  flex-direction: row-reverse; /* 图片置底 */
+}
 
-  & .right {
-    display: flex;
-    gap: 32px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.content .right {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-    & .icon-line {
-      display: grid;
-      gap: 16px 32px;
-      justify-content: center;
-      align-items: center;
-      grid-template-columns: repeat(2, 1fr);
+.content .icon-line {
+  display: grid;
+  gap: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+}
 
-      & * {
-        width: 150px;
-        height: 150px;
-      }
-      /* 1st and 4th */
-      & *:nth-child(4n + 1),
-      & *:nth-child(4n) {
-        transform: rotate(-5deg);
-      }
-      /* 2nd and 3rd */
-      & *:nth-child(4n + 2),
-      & *:nth-child(4n + 3) {
-        transform: rotate(5deg);
-      }
-    }
-  }
+.content .icon-line * {
+  width: 150px;
+  height: 150px;
+}
+
+/* 1st and 4th */
+.content .icon-line *:nth-child(4n + 1),
+.content .icon-line *:nth-child(4n) {
+  transform: rotate(-5deg);
+}
+/* 2nd and 3rd */
+.content .icon-line *:nth-child(4n + 2),
+.content .icon-line *:nth-child(4n + 3) {
+  transform: rotate(5deg);
 }
