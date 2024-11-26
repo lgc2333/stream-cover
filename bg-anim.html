@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/bg-anim.css" />
+    <style>
+      body {
+        background-color: darkgrey;
+      }
+
+      svg {
+        & text {
+          font-family: 'Xiaolai SC';
+          font-size: 168px;
+          fill: #8c7871;
+          stroke: white;
+          stroke-width: 16px;
+          paint-order: stroke;
+          stroke-linejoin: round;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <!-- imitated from VTubeStudio default background -->
+      <div class="bg-deco up anim"></div>
+      <div class="bg-slash anim"></div>
+      <div class="bg-deco down anim"></div>
+
+      <div class="content">
+        <svg data-autosize>
+          <text alignment-baseline="text-before-edge">★</text>
+        </svg>
+        <svg data-autosize>
+          <text alignment-baseline="text-before-edge">请</text>
+        </svg>
+        <svg data-autosize>
+          <text alignment-baseline="text-before-edge">稍</text>
+        </svg>
+        <svg data-autosize>
+          <text alignment-baseline="text-before-edge">等</text>
+        </svg>
+        <svg data-autosize>
+          <text alignment-baseline="text-before-edge">★</text>
+        </svg>
+      </div>
+    </main>
+  </body>
+
+  <script src="/js/svg-autosize.js"></script>
+</html>

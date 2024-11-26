@@ -1,0 +1,73 @@
+main {
+  width: 1920px;
+  height: 1080px;
+  background-color: #aacdf4;
+  overflow: hidden;
+
+  position: relative; /* for bg */
+}
+
+.bg-deco {
+  /* width: 1980px; */
+  width: 100%;
+  height: 90px;
+  background-repeat: repeat-x;
+  position: absolute;
+  background-position: 60px 0;
+  /* left: -30px; */
+}
+.bg-deco.up {
+  top: 0;
+  background-image: url('/assets/bg-deco-up.svg');
+}
+.bg-deco.down {
+  bottom: 0;
+  background-image: url('/assets/bg-deco-down.svg');
+}
+
+@keyframes bg-deco {
+  from {
+    background-position: 90px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+.bg-deco.anim {
+  animation: bg-deco 3s infinite linear;
+}
+.bg-deco.down.anim {
+  animation-direction: reverse;
+}
+
+.bg-slash {
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/bg-slash.svg');
+  background-repeat: repeat;
+  background-position: 45px 45px;
+}
+
+@keyframes bg-slash {
+  from {
+    background-position: 90px 0;
+  }
+  to {
+    background-position: 0 90px;
+  }
+}
+.bg-slash.anim {
+  animation: bg-slash 3s infinite linear;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* gap: 16px; */
+  justify-content: center;
+  align-items: center;
+}
