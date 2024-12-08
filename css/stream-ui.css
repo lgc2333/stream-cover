@@ -5,6 +5,7 @@
   --color-secondary-status-bar: #374872;
   --color-secondary-status-font: #fff;
   --color-inactive-accent: #9debffbb;
+  --color-active-background: #3b3c58;
   --color-font: #c8c8c9;
   --color-active-font: #111;
   --color-added: #73be79;
@@ -176,8 +177,8 @@ main {
 }
 
 .display {
-  width: 1280px;
-  height: 720px;
+  width: 1440px;
+  height: 810px;
 }
 
 .display-container-right {
@@ -225,7 +226,11 @@ main {
   gap: 8px;
   align-items: center;
   justify-content: center;
+}
+
+.file-tab.active {
   border-bottom: var(--active-border);
+  background-color: var(--color-active-background);
 }
 
 .file-tab.added :not([class^='codicon-']) {
