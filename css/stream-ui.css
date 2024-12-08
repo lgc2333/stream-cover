@@ -12,6 +12,8 @@
   --color-modified: #9debff;
   --border: 1px solid var(--color-border);
   --active-border: 2px solid var(--color-status-bar);
+  --display-width: 1440px;
+  --display-height: 810px;
 }
 
 main {
@@ -139,8 +141,8 @@ main {
   background-color: var(--color-status-bar);
   color: var(--color-active-font);
   font-size: 10px;
-  padding: 2px 3px 1px 3px;
-  border-radius: 8px;
+  padding: 1px 4px;
+  border-radius: 10px;
   min-width: 10px;
   display: flex;
   align-items: center;
@@ -177,8 +179,8 @@ main {
 }
 
 .display {
-  width: 1440px;
-  height: 810px;
+  width: var(--display-width);
+  height: var(--display-height);
 }
 
 .display-container-right {
@@ -189,8 +191,27 @@ main {
   border-left: var(--border);
 }
 
-.right-bar {
+.display-container-right-top,
+.display-container-right-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-container-right-top {
   flex-grow: 1;
+}
+
+.display-container-right-bottom {
+  box-sizing: border-box;
+  border-top: var(--border);
+}
+
+.right-top-container {
+  flex-grow: 1;
+}
+
+.right-bottom-container {
+  height: 220px;
 }
 
 .file-bar {
@@ -245,6 +266,8 @@ main {
   flex-grow: 1;
   box-sizing: border-box;
   border-top: var(--border);
+  display: flex;
+  flex-direction: column;
 }
 
 .console-top {
@@ -254,14 +277,19 @@ main {
   display: flex;
   font-size: 12px;
   padding: 0 16px;
+  justify-content: space-between;
 }
 
 .console-top-left .active {
   border-bottom: var(--active-border);
 }
 
-.console-top-left,
 .console-top-right {
+  display: flex;
+  gap: 12px;
+}
+
+.console-top-left {
   display: flex;
   gap: 24px;
 }
@@ -272,6 +300,17 @@ main {
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+
+.console-bottom {
+  flex-grow: 1;
+  display: flex;
+}
+
+.console-bottom-split {
+  width: var(--display-width);
+  border-right: var(--border);
+  box-sizing: border-box;
 }
 
 .status-bar {
