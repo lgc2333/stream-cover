@@ -888,7 +888,6 @@ svg.tabler-icon.tabler-icon-thumb-up-filled {
 
   100% {
     opacity: 0;
-    height: 0;
     display: none;
   }
 }
