@@ -12,8 +12,8 @@
   --color-modified: #9debff;
   --border: 1px solid var(--color-border);
   --active-border: 2px solid var(--color-status-bar);
-  --display-width: 1440px;
-  --display-height: 810px;
+  --display-width: 1536px;
+  --display-height: 864px;
 }
 
 main {
@@ -181,6 +181,7 @@ main {
 .display {
   width: var(--display-width);
   height: var(--display-height);
+  /* background-color: white; */
 }
 
 .display-container-right {
@@ -192,12 +193,13 @@ main {
 }
 
 .display-container-right-top,
+.display-container-right-middle,
 .display-container-right-bottom {
   display: flex;
   flex-direction: column;
 }
 
-.display-container-right-top {
+.display-container-right-middle {
   flex-grow: 1;
 }
 
@@ -207,11 +209,15 @@ main {
 }
 
 .right-top-container {
+  height: 120px;
+}
+
+.right-middle-container {
   flex-grow: 1;
 }
 
 .right-bottom-container {
-  height: 220px;
+  height: 200px;
 }
 
 .file-bar {
