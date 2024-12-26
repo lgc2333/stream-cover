@@ -1,0 +1,21 @@
+{
+  "name": "final-1",
+  "packageManager": "yarn@4.5.3",
+  "private": true,
+  "version": "0",
+  "scripts": {
+    "build:css": "unocss",
+    "dev:css": "unocss --watch",
+    "build": "yarn build:css",
+    "dev": "yarn dev:css"
+  },
+  "devDependencies": {
+    "@unocss/cli": "^0.65.2",
+    "@unocss/preset-icons": "^0.65.2",
+    "prettier": "^3.4.2",
+    "prettier-plugin-classnames": "^0.7.5",
+    "prettier-plugin-merge": "^0.7.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "unocss": "^0.65.2"
+  }
+}

@@ -1,3 +1,3 @@
-[submodule "assets/catppuccin-icons"]
-	path = assets/catppuccin-icons
+[submodule "src/assets/catppuccin-icons"]
+	path = src/assets/catppuccin-icons
 	url = https://github.com/catppuccin/vscode-icons
