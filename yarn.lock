@@ -522,6 +522,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/obs-studio@npm:^2.17.2":
+  version: 2.17.2
+  resolution: "@types/obs-studio@npm:2.17.2"
+  checksum: 10c0/1c7a288532cbee075900882e845ef8b8038d096d77adc6daae13749d9e7f1d8699a87248406e834d70d264868f605c4dc09535fa2738334905d7aed2bfc4083e
+  languageName: node
+  linkType: hard
+
 "@unocss/astro@npm:0.65.3":
   version: 0.65.3
   resolution: "@unocss/astro@npm:0.65.3"
@@ -1281,6 +1288,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "final-1@workspace:."
   dependencies:
+    "@types/obs-studio": "npm:^2.17.2"
     "@unocss/cli": "npm:^0.65.2"
     "@unocss/preset-icons": "npm:^0.65.2"
     prettier: "npm:^3.4.2"

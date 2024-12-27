@@ -1,7 +1,11 @@
+main,
+.bg {
+  background-color: #aacdf4;
+}
+
 main {
   width: 1920px;
   height: 1080px;
-  background-color: #aacdf4;
   overflow: hidden;
 
   position: relative; /* for bg */

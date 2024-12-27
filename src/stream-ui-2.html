@@ -4,51 +4,129 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/cover.css" />
     <link rel="stylesheet" href="./css/uno.css" />
     <style>
       @import url('https://blog.lgc2333.top/css/fonts/harmony-os-sans-sc/index.css');
 
+      :root {
+        --rd-inv-tl-path: 'M0,16 A16,16 0 0,1 16,0 L0,0 Z';
+        --rd-inv-bl-path: 'M16,16 A16,16 0 0,1 0,0 L0,16 Z';
+        --rd-inv-tr-path: 'M0,0 A16,16 0 0,1 16,16 L16,0 Z';
+        --rd-inv-br-path: 'M16,0 A16,16 0 0,1 0,16 L16,16 Z';
+      }
+
       body {
         font-family: 'HarmonyOS Sans SC', sans-serif;
       }
+
+      /* #playing {
+        display: none;
+      } */
     </style>
   </head>
   <body>
-    <div class="border-dark w-max border-4 border-solid">
-      <div class="gap-12px w-3072px h-1728px p-12px box-border flex">
+    <div class="w-3072px h-1728px color-op-90 color-light">
+      <div class="bg h-inherit w-inherit -z-2 filter-brightness-65 absolute">
+        <div class="bg-slash anim !animate-duration-5000"></div>
+      </div>
+
+      <div class="gap-8px p-16px h-inherit w-inherit box-border flex">
         <div class="flex flex-col">
-          <div class="bg-dark bg-op-10 p-8px h-1440px w-2560px flex">
-            <div class="text-14px border-dark border-2px flex-1 border-solid">
-              Hello World
+          <div class="bg-dark bg-op-30 p-16px rd-16px rd-br-0 flex">
+            <!-- border-light border-2px border-op-20 border-solid -->
+            <div class="h-1440px w-2560px rd-16px box-content"></div>
+          </div>
+
+          <div class="gap-8px flex">
+            <div class="flex flex-1">
+              <div
+                class="bg-dark bg-op-30 text-36px px-16px pt-4px mt-8px rd-t-16px
+                  gap-8px flex flex-1 items-center font-bold"
+              >
+                <div class="h-34px w-10px rd-full bg-op-90 bg-blue-3"></div>
+                <span>ANNOUNCE</span>
+              </div>
+              <div class="relative">
+                <div
+                  class="bg-dark bg-op-30 w-16px h-16px absolute bottom-0"
+                  style="clip-path: path(var(--rd-inv-bl-path)); clip-rule: evenodd"
+                ></div>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="relative">
+                <div
+                  class="bg-dark bg-op-30 w-16px h-16px -left-16px absolute"
+                  style="clip-path: path(var(--rd-inv-tr-path)); clip-rule: evenodd"
+                ></div>
+              </div>
+              <div
+                class="bg-dark bg-op-30 text-36px px-16px pb-4px mb-8px rd-b-16px
+                  gap-8px flex w-fit items-center font-bold"
+              >
+                <span>DISPLAY</span>
+                <div class="h-34px w-10px rd-full bg-op-90 bg-blue-3"></div>
+              </div>
             </div>
           </div>
-          <div class="flex justify-between">
-            <div class="bg-dark bg-op-10 text-36px px-8px mt-12px w-fit font-bold">
-              ANNOUNCE
+
+          <div class="rd-16px bg-dark bg-op-30 rd-tl-0 flex flex-1">
+            <div class="p-16px flex flex-1">
+              <div class="flex-1"></div>
+              <div class="text-26px color-light color-op-50 text-align-end self-end">
+                STUDENT_2333<br />
+                <span id="time-now">2077-1-1 11:45:14</span><br />
+                live.bilibili.com/8333250
+              </div>
             </div>
-            <div class="bg-dark bg-op-10 text-36px px-8px mb-12px w-fit font-bold">
-              DISPLAY
-            </div>
-          </div>
-          <div class="flex flex-1">
-            <div class="bg-dark bg-op-10 flex-1"></div>
           </div>
         </div>
-        <div class="gap-12px flex flex-1 flex-col">
-          <div class="flex flex-col">
-            <div class="bg-dark bg-op-10 text-36px px-8px w-fit font-bold">PLAYING</div>
-            <div class="bg-dark bg-op-10 h-180px"></div>
+
+        <div class="gap-8px flex flex-1 flex-col">
+          <div class="flex flex-col" id="playing">
+            <div class="flex flex-col">
+              <div
+                class="bg-dark bg-op-30 text-36px px-16px pt-4px rd-t-16px gap-8px flex
+                  items-center font-bold"
+              >
+                <div class="h-34px w-10px rd-full bg-op-90 bg-blue-3"></div>
+                <span>PLAYING</span>
+              </div>
+            </div>
+            <div class="bg-dark bg-op-30 h-150px rd-16px rd-t-0"></div>
           </div>
+
           <div class="flex flex-1 flex-col">
-            <div class="bg-dark bg-op-10 text-36px px-8px w-fit font-bold">CHAT</div>
-            <div class="bg-dark bg-op-10 flex-1"></div>
+            <div class="flex flex-col">
+              <div
+                class="bg-dark bg-op-30 text-36px px-16px pt-4px rd-t-16px gap-8px flex
+                  items-center font-bold"
+              >
+                <div class="h-34px w-10px rd-full bg-op-90 bg-blue-3"></div>
+                <span>CHAT</span>
+              </div>
+            </div>
+            <div class="bg-dark bg-op-30 rd-16px rd-t-0 flex-1"></div>
           </div>
+
           <div class="flex flex-col">
-            <div class="bg-dark bg-op-10 text-36px px-8px w-fit font-bold">UwU</div>
-            <div class="bg-dark bg-op-10 h-500px"></div>
+            <div class="flex flex-col">
+              <div
+                class="bg-dark bg-op-30 text-36px px-16px pt-4px rd-t-16px gap-8px flex
+                  items-center font-bold"
+              >
+                <div class="h-34px w-10px rd-full bg-op-90 bg-blue-3"></div>
+                <span>MODEL</span>
+              </div>
+            </div>
+            <div class="bg-dark bg-op-30 h-390px rd-16px rd-t-0"></div>
           </div>
         </div>
       </div>
     </div>
   </body>
+
+  <script src="./js/time-now.js"></script>
 </html>

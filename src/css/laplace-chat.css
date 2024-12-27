@@ -7,6 +7,8 @@
 /* 全局背景透明，可保证 OBS 载入弹幕机的过程中背景全程透明 */
 body {
   background-color: rgba(0, 0, 0, 0);
+  margin: 0;
+  padding: 0;
 }
 
 /*** 全局设定 ***/
@@ -55,8 +57,7 @@ body {
 
 /** 全局头像设置 **/
 .event .avatar-wrap * {
-  /* border-radius: calc(var(--1px) * 8); */
-  border-radius: 0;
+  border-radius: calc(var(--1px) * 4);
 }
 
 .event .avatar {
@@ -303,7 +304,7 @@ body {
 .event--message .meta .sender-avatar {
   top: calc(var(--1px) * 10);
   margin-right: calc(var(--1px) * 5);
-  border-radius: calc(var(--1px) * 8);
+  border-radius: calc(var(--1px) * 4);
   /* box-shadow: 0 0 calc(var(--1px) * 4) calc(var(--1px) * 1.5) var(--bg); */
 }
 
@@ -326,7 +327,7 @@ body {
   display: block;
   padding: 0 calc(var(--1px) * 6);
   /* background-color: rgba(178, 191, 195, 0.7); */
-  /* border-radius: calc(var(--1px) * 4); */
+  border-radius: calc(var(--1px) * 2);
   --avatar-size: calc(var(--size) * 1.2);
 }
 
@@ -373,7 +374,7 @@ svg.tabler-icon.tabler-icon-thumb-up-filled {
   /* background-color: rgb(201, 192, 159); */
   font-size: calc(var(--size) * 0.9);
   --avatar-size: calc(var(--size) * 1.25);
-  /* border-radius: calc(var(--1px) * 4); */
+  border-radius: calc(var(--1px) * 2);
 }
 
 /* 信息栏样式 */
@@ -386,7 +387,7 @@ svg.tabler-icon.tabler-icon-thumb-up-filled {
 .event--gift.event-show-as--normal.event-size--normal .avatar-wrap,
 .event--red-envelope-start.event-show-as--normal.event-size--normal .avatar-wrap {
   margin-right: calc(var(--1px) * 3);
-  /* border-radius: calc(var(--1px) * 8); */
+  border-radius: calc(var(--1px) * 4);
   /* box-shadow: 0 0 calc(var(--1px) * 2) calc(var(--1px) * 1.5) var(--bg); */
 }
 
@@ -433,7 +434,7 @@ svg.tabler-icon.tabler-icon-thumb-up-filled {
 .event--lottery-start.event-show-as--normal .content {
   padding-left: calc(var(--size) * 3);
   padding-right: calc(var(--size) * 3.3);
-  /* border-radius: calc(var(--1px) * 8); */
+  border-radius: calc(var(--1px) * 4);
   font-size: calc(var(--size) * 0.9);
   --avatar-size: calc(var(--size) * 2.4);
 }
@@ -459,7 +460,7 @@ svg.tabler-icon.tabler-icon-thumb-up-filled {
   position: absolute;
   top: calc(var(--1px) * -2);
   left: calc(var(--size) * 0);
-  /* border-radius: calc(var(--1px) * 8); */
+  border-radius: calc(var(--1px) * 4);
   /* box-shadow: 0 0 calc(var(--1px) * 4) calc(var(--1px) * 2) var(--bg); */
 }
 
@@ -586,7 +587,7 @@ svg.tabler-icon.tabler-icon-thumb-up-filled {
 /** 头像样式 **/
 .event--superchat.event-show-as--normal .avatar-wrap {
   margin-right: calc(var(--1px) * 2);
-  border-radius: calc(var(--1px) * 8);
+  border-radius: calc(var(--1px) * 4);
   /* box-shadow: 0 0 calc(var(--1px) * 3) calc(var(--1px) * 1.5) var(--bg); */
 }
 
@@ -647,7 +648,7 @@ svg.tabler-icon.tabler-icon-thumb-up-filled {
 
 /** 头像样式 **/
 .event--toast.event-show-as--normal .avatar-wrap {
-  border-radius: calc(var(--1px) * 8);
+  border-radius: calc(var(--1px) * 4);
   /* box-shadow: 0 0 calc(var(--1px) * 4) calc(var(--1px) * 2) var(--bg); */
 }
 
