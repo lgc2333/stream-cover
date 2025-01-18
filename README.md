@@ -3,6 +3,7 @@
 ## Licensing
 
 - All HTML, CSS, and JavaScript code in this repository are under the license in file `LICENSE` (MIT), except:
+  - `css/codicon.css` (Follow their original license)
   - `css/laplace-chat.css` (Follow their original license)
 - The following files in this repository are under the license in file `LICENSE.CC-BY-NC-SA`:
   - `assets/character.png`
