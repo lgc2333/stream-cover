@@ -1,14 +1,14 @@
-main,
-.bg {
-  background-color: #aacdf4;
+:root {
+  --rd-inv-tl-path: 'M0,16 A16,16 0 0,1 16,0 L0,0 Z';
+  --rd-inv-bl-path: 'M16,16 A16,16 0 0,1 0,0 L0,16 Z';
+  --rd-inv-tr-path: 'M0,0 A16,16 0 0,1 16,16 L16,0 Z';
+  --rd-inv-br-path: 'M16,0 A16,16 0 0,1 0,16 L16,16 Z';
+
+  --bg-color: #aacdf4;
 }
 
-main {
-  width: 1920px;
-  height: 1080px;
-  overflow: hidden;
-
-  position: relative; /* for bg */
+.bg {
+  background-color: var(--bg-color);
 }
 
 .bg-deco {
@@ -64,14 +64,17 @@ main {
   animation: bg-slash 3s infinite linear;
 }
 
-.content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  /* gap: 16px; */
-  justify-content: center;
-  align-items: center;
+@keyframes text-rotate {
+  from {
+    transform: rotate(-5deg);
+  }
+  to {
+    transform: rotate(5deg);
+  }
+}
+.step-rotate-container > * {
+  animation: text-rotate 1.5s infinite steps(2, jump-none);
+}
+.step-rotate-container > *:nth-child(even) {
+  animation-direction: reverse;
 }

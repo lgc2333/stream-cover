@@ -1,3 +1,23 @@
+main {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  position: relative; /* for bg */
+  background-color: var(--bg-color);
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* gap: 16px; */
+  justify-content: center;
+  align-items: center;
+}
+
 .content .left {
   display: flex;
   flex-direction: row-reverse; /* 图片置底 */
@@ -33,4 +53,12 @@
 .content .icon-line *:nth-child(4n + 2),
 .content .icon-line *:nth-child(4n + 3) {
   transform: rotate(5deg);
+}
+
+svg text {
+  font-family: 'Xiaolai SC';
+  fill: #8c7871;
+  stroke: white;
+  paint-order: stroke;
+  stroke-linejoin: round;
 }

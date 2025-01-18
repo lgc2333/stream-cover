@@ -1,0 +1,352 @@
+:root {
+  --color-background: #2b2c3d;
+  --color-border: #2b3a50;
+  --color-status-bar: #9debff;
+  --color-secondary-status-bar: #374872;
+  --color-secondary-status-font: #fff;
+  --color-inactive-accent: #9debffbb;
+  --color-active-background: #3b3c58;
+  --color-font: #c8c8c9;
+  --color-active-font: #111;
+  --color-added: #73be79;
+  --color-modified: #9debff;
+  --border: 1px solid var(--color-border);
+  --active-border: 2px solid var(--color-status-bar);
+  --display-width: 1536px;
+  --display-height: 864px;
+}
+
+main {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background-color: var(--color-background);
+
+  color: var(--color-font);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.header-wrapper {
+  width: 100%;
+  padding: 6px;
+  height: 30px;
+  box-sizing: border-box;
+  border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.header-left,
+.header-middle,
+.header-right {
+  height: 100%;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.icon {
+  height: 100%;
+  width: 16px;
+  height: 16px;
+  background: url('../assets/hair-clip.png') center/contain no-repeat;
+}
+
+.header-middle {
+  justify-content: center;
+}
+
+.header-right {
+  justify-content: flex-end;
+}
+
+.component-controls,
+.window-controls {
+  display: flex;
+  align-items: center;
+  font-weight: 200;
+}
+
+.component-controls > *,
+.window-controls > * {
+  display: flex;
+  align-items: center;
+}
+
+.component-controls {
+  gap: 8px;
+}
+
+.window-controls > * {
+  padding: 0 12px;
+}
+
+.body {
+  flex-grow: 1;
+  display: flex;
+}
+
+.tool-bar {
+  width: 48px;
+  height: 100%;
+  box-sizing: border-box;
+  border-right: var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--color-inactive-accent);
+}
+
+.tool-bar .active {
+  color: var(--color-status-bar);
+  border-left: var(--active-border);
+}
+
+.tool-bar-top,
+.tool-bar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.tool-bar-top > *,
+.tool-bar-bottom > * {
+  position: relative;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tool-bar *[class^='codicon-'] {
+  font-size: 24px;
+}
+
+.bubble {
+  background-color: var(--color-status-bar);
+  color: var(--color-active-font);
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 10px;
+  min-width: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-bar .bubble {
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
+}
+
+.left-bar {
+  width: 300px;
+  box-sizing: border-box;
+  border-right: var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.main-space {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.display-container {
+  display: flex;
+}
+
+.display-container-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.display {
+  width: var(--display-width);
+  height: var(--display-height);
+  /* background-color: white; */
+}
+
+.display-container-right {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-left: var(--border);
+}
+
+.display-container-right-top,
+.display-container-right-middle,
+.display-container-right-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-container-right-middle {
+  flex-grow: 1;
+}
+
+.display-container-right-bottom {
+  box-sizing: border-box;
+  border-top: var(--border);
+}
+
+.right-top-container {
+  height: 115px;
+}
+
+.right-middle-container {
+  flex-grow: 1;
+}
+
+.right-bottom-container {
+  height: 200px;
+}
+
+.file-bar {
+  height: 36px;
+  box-sizing: border-box;
+  border-bottom: var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--color-font);
+}
+
+.file-bar-left,
+.file-bar-right {
+  display: flex;
+}
+
+.file-bar-right {
+  margin-right: 12px;
+  gap: 8px;
+}
+
+.file-bar-right > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-tab {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 8px;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-tab.active {
+  border-bottom: var(--active-border);
+  background-color: var(--color-active-background);
+}
+
+.file-tab.added :not([class^='codicon-']) {
+  color: var(--color-added);
+}
+
+.file-tab.modified :not([class^='codicon-']) {
+  color: var(--color-modified);
+}
+
+.console {
+  flex-grow: 1;
+  box-sizing: border-box;
+  border-top: var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.console-top {
+  height: 32px;
+  box-sizing: border-box;
+  border-bottom: var(--border);
+  display: flex;
+  font-size: 12px;
+  padding: 0 16px;
+  justify-content: space-between;
+}
+
+.console-top-left .active {
+  border-bottom: var(--active-border);
+}
+
+.console-top-right {
+  display: flex;
+  gap: 12px;
+}
+
+.console-top-left {
+  display: flex;
+  gap: 24px;
+}
+
+.console-top-left > *,
+.console-top-right > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.console-bottom {
+  flex-grow: 1;
+  display: flex;
+}
+
+.console-bottom-split {
+  width: var(--display-width);
+  border-right: var(--border);
+  box-sizing: border-box;
+}
+
+.status-bar {
+  width: 100%;
+  box-sizing: border-box;
+  height: 24px;
+  background-color: var(--color-status-bar);
+  color: var(--color-active-font);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-bar-left,
+.status-bar-right {
+  display: flex;
+  height: 100%;
+}
+
+.status-bar-left > *,
+.status-bar-right > * {
+  padding: 0 8px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-remote {
+  background-color: var(--color-secondary-status-bar);
+  color: var(--color-secondary-status-font);
+}
