@@ -1060,11 +1060,24 @@ svg.tabler-icon.tabler-icon-thumb-up-filled {
 .fans-medal-level {
   margin: 0;
   padding: 0;
-  border-radius: calc(var(--1px) * 2);
+  margin-left: calc(var(--1px) * 2);
+  padding-left: calc(var(--1px) * 2);
+  /* border-radius: calc(var(--1px) * 2); */
+  border-radius: 0;
+  border-left: var(--medal-border-color) calc(var(--1px)) solid;
   color: #fff;
   background-color: transparent;
   font-size: calc(var(--size) * 0.7);
   line-height: 1.2;
+}
+
+.medal_fansMedalHasGuard__o2q7B .medal_fansMedalContent__7VXHO {
+  padding-left: 0;
+}
+
+.medal_fansMedalType1__u7gvd
+  :is(.medal_fansMedalHasGuard__o2q7B .medal_fansMedalContent__7VXHO) {
+  padding-left: 0;
 }
 
 /** 调整小表情（b站emoji） **/
