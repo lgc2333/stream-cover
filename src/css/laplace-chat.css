@@ -370,7 +370,7 @@ svg.tabler-icon.tabler-icon-thumb-up-filled {
 /* 总样式 */
 .event--gift.event-show-as--normal.event-size--normal,
 .event--red-envelope-start.event-show-as--normal.event-size--normal {
-  padding: calc(var(--1px) * 2) calc(var(--1px) * 4);
+  padding: calc(var(--1px) * 2) calc(var(--1px) * 8);
   /* background-color: rgb(201, 192, 159); */
   font-size: calc(var(--size) * 0.9);
   --avatar-size: calc(var(--size) * 1.25);
