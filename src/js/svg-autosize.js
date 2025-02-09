@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let additionalH = additionalHAttr ? parseFloat(additionalHAttr) : 0
     if (Number.isNaN(additionalH)) additionalH = 0
 
-    svg.setAttribute('width', width + additionalW)
-    svg.setAttribute('height', height + additionalH)
+    svg.setAttribute('width', `${width + additionalW}`)
+    svg.setAttribute('height', `${height + additionalH}`)
   })
 })

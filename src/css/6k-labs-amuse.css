@@ -1,0 +1,42 @@
+/* Use with 6K Labs Amuse OBS browser widget with macOS player theme */
+
+body {
+  background-color: rgba(0, 0, 0, 0);
+  margin: 0px auto;
+  overflow: hidden;
+}
+
+.bg-osxTopBg {
+  display: none;
+}
+
+.outline-osxTopBg {
+  outline-color: transparent;
+  background-color: transparent;
+}
+
+#songinfo > p.text-lg {
+  font-size: 1.2rem;
+}
+
+#songinfo > p.text-sm {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#songinfo,
+#songtime {
+  padding: 0;
+}
+
+[class*='drop-shadow-'] {
+  --tw-drop-shadow: transparent;
+}
+
+main > div > div:nth-child(2) > div > div > div {
+  transform: scale(1.2439) !important;
+}
+
+main > div > div.group\/fullscreen.flex.h-screen.w-full.justify-center {
+  opacity: 0;
+}

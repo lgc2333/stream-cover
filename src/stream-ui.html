@@ -10,7 +10,8 @@
   <body>
     <div class="w-3072px h-1728px color-op-90 color-light">
       <div class="bg h-inherit w-inherit -z-2 filter-brightness-65 absolute">
-        <div class="bg-slash anim !animate-duration-10000"></div>
+        <!-- <div class="bg-slash anim !animate-duration-8000"></div> -->
+        <div class="bg-slash"></div>
       </div>
 
       <div class="gap-8px p-16px h-inherit w-inherit box-border flex">
@@ -31,7 +32,7 @@
               </div>
               <div class="relative">
                 <div
-                  class="bg-dark bg-op-30 w-16px h-16px absolute bottom-0"
+                  class="bg-dark bg-op-30 w-16px h-16px absolute bottom-0 left-0"
                   style="clip-path: path(var(--rd-inv-bl-path))"
                 ></div>
               </div>
@@ -39,7 +40,7 @@
             <div class="flex">
               <div class="relative">
                 <div
-                  class="bg-dark bg-op-30 w-16px h-16px -left-16px absolute"
+                  class="bg-dark bg-op-30 w-16px h-16px -left-16px absolute top-0"
                   style="clip-path: path(var(--rd-inv-tr-path))"
                 ></div>
               </div>
@@ -54,11 +55,25 @@
           </div>
 
           <div class="rd-16px bg-dark bg-op-30 rd-tl-0 flex flex-1">
-            <div class="p-16px flex flex-1">
-              <div class="flex-1"></div>
-              <div class="text-26px color-light color-op-50 text-align-end self-end">
-                live.bilibili.com/8333250<br />
-                github.com/lgc2333/stream-cover
+            <div class="p-16px flex flex-1 pt-0">
+              <div
+                id="announce"
+                class="text-27px color-light color-op-90 flex flex-1 items-center gap-4
+                  [&>*]:flex [&>*]:gap-4"
+              ></div>
+              <div class="relative flex h-full items-center">
+                <div
+                  id="right-announce"
+                  class="text-27px color-light color-op-50 text-align-end absolute
+                    right-0 [&>*]:w-max"
+                >
+                  <div id="right-announce-copyright">
+                    <br />
+                    LgCookie<br />
+                    live.bilibili.com/8333250<br />
+                    github.com/lgc2333/stream-cover
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -75,7 +90,7 @@
                 <span>PLAYING</span>
               </div>
             </div>
-            <div class="bg-dark bg-op-30 h-150px rd-16px rd-t-0"></div>
+            <div class="bg-dark bg-op-30 h-160px rd-16px rd-t-0"></div>
           </div>
 
           <div class="flex flex-1 flex-col" id="chat">
@@ -115,5 +130,8 @@
     </div>
   </body>
 
+  <script src="./js/announce-data.example.js"></script>
+  <script src="./js/announce-data.js"></script>
+  <script src="./js/announce.js"></script>
   <script src="./js/time-now.js"></script>
 </html>
