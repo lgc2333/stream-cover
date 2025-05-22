@@ -75,4 +75,4 @@
 .font-bold{font-weight:700;}
 .font-normal{font-weight:400;}
 .file-tab::file-selector-button{-moz-tab-size:4;-o-tab-size:4;tab-size:4;}
-.filter-brightness-65{--un-brightness:brightness(0.65);filter:var(--un-blur) var(--un-brightness) var(--un-contrast) var(--un-drop-shadow) var(--un-grayscale) var(--un-hue-rotate) var(--un-invert) var(--un-saturate) var(--un-sepia);}
+.filter-brightness-80{--un-brightness:brightness(0.8);filter:var(--un-blur) var(--un-brightness) var(--un-contrast) var(--un-drop-shadow) var(--un-grayscale) var(--un-hue-rotate) var(--un-invert) var(--un-saturate) var(--un-sepia);}

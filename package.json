@@ -1,6 +1,6 @@
 {
   "name": "final-1",
-  "packageManager": "yarn@4.5.3",
+  "packageManager": "yarn@4.9.1",
   "private": true,
   "version": "0",
   "scripts": {
