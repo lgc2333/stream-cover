@@ -1,5 +1,5 @@
 /***** 原作者：@橙橙子君 *****/
-/* LgCookie 基于 橙子色块 二次开发 */
+/* student_2333 基于 橙子色块 二次开发 */
 
 /* 引用在线字体 */
 @import url('https://blog.lgc2333.top/css/fonts/harmony-os-sans-sc/index.css');
@@ -823,6 +823,24 @@ svg.tabler-icon.tabler-icon-thumb-up-filled {
   /* background-color: rgb(201, 207, 193, 0.85); */
   background-color: transparent;
   border-left: calc(var(--1px) * 6) solid rgb(8, 126, 204);
+  /* border-radius: calc(var(--1px) * 4); */
+  border-radius: 0;
+  font-size: calc(var(--size) * 0.9);
+}
+
+.event--live-start {
+  color: rgb(255, 140, 150);
+  background-color: transparent;
+  border-left: calc(var(--1px) * 6) solid rgb(255, 140, 150);
+  /* border-radius: calc(var(--1px) * 4); */
+  border-radius: 0;
+  font-size: calc(var(--size) * 0.9);
+}
+
+.event--live-end {
+  /* color: rgb(61, 56, 65); */
+  background-color: transparent;
+  border-left: calc(var(--1px) * 6) solid rgb(61, 56, 65);
   /* border-radius: calc(var(--1px) * 4); */
   border-radius: 0;
   font-size: calc(var(--size) * 0.9);
