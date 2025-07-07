@@ -1,0 +1,1116 @@
+/*
+  @title        饼干的LAPLACE Chat样式
+  @description  基于 橙子色块 二次开发
+  @author       橙橙子君 & LgCookie
+  @updated      September 8, 2025, 0:00:00 AM CST
+  @version      1.0.0
+  @thumbnail    https://raw.githubusercontent.com/lgc2333/stream-cover/refs/heads/main/laplace/main.png
+  @features     3rd-party, auto-scale
+*/
+
+/* 引用在线字体 */
+@import url('https://blog.lgc2333.top/css/fonts/harmony-os-sans-sc/index.css');
+
+@layer remote-css {
+  /* 全局背景透明，可保证 OBS 载入弹幕机的过程中背景全程透明 */
+  body {
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0;
+    padding: 0;
+  }
+
+  /*** 全局设定 ***/
+  /** 字体设定 **/
+  /* 建议使用免费可商用字体、避免版权问题 */
+  /* 注意考虑弹幕多语言问题（简、繁、日语），添加备用字体，建议最后添加全语言字体（如思源系列、阿里巴巴普惠体）保底 */
+  .event {
+    --event-font-family: 'HarmonyOS Sans SC', var(--fontstack-sans-serif);
+    font-size: var(--size);
+    /* 基准字号自定义变量 */
+    --size: var(--event-font-size);
+    /* 字重 （字体粗细）*/
+    font-weight: normal;
+  }
+
+  .reply-avatar {
+    display: none;
+  }
+
+  .reply-username::before {
+    content: '@';
+  }
+
+  .mvp-rank--1,
+  .mvp-rank--2,
+  .mvp-rank--3,
+  .mvp-rank--4,
+  .mvp-rank--5,
+  .mvp-rank--6,
+  .mvp-rank--1 .price,
+  .mvp-rank--2 .price,
+  .mvp-rank--3 .price,
+  .mvp-rank--4 .price,
+  .mvp-rank--5 .price,
+  .mvp-rank--6 .price {
+    background-color: transparent;
+    color: #e7d6a9 !important;
+  }
+
+  /** 全局间距 **/
+  .event:not(.event-show-as--sticky) {
+    margin-bottom: calc(var(--1px) * 5);
+    margin-left: calc(var(--1px) * 2);
+    margin-right: calc(var(--1px) * 2);
+  }
+
+  /** 全局头像设置 **/
+  .event .avatar-wrap * {
+    border-radius: calc(var(--1px) * 4);
+  }
+
+  .event .avatar {
+    box-shadow: none;
+  }
+
+  /** 弹幕表情调整 **/
+  /* 大表情（包括直播间通用表情、房间表情、粉丝团表情、自购表情） */
+  .event--message .emote {
+    min-width: calc(var(--size) * 1.5);
+    min-height: calc(var(--size) * 1.5);
+  }
+
+  /** 用户身份变量 **/
+  /* --text-color: 用于调整字体颜色
+   --bg0: 用于弹幕背景颜色，配合rgba(var(--bg), 透明度)使用
+   --bg: 用于头像背后的阴影颜色、舰长背景颜色
+   --badge-content: 用于上舰消息的自定义内容 */
+  /* 总督变量 */
+  .guard-level--1 {
+    --text-color: rgb(255, 167, 161);
+    --bg0: 230, 108, 85;
+    --bg: rgb(167, 33, 38);
+  }
+
+  /* 提督变量 */
+  .guard-level--2 {
+    --text-color: rgb(242, 184, 255);
+    --bg0: 173, 92, 171;
+    --bg: rgb(124, 37, 125);
+  }
+
+  /* 舰长变量 */
+  .guard-level--3 {
+    --text-color: rgb(161, 211, 255);
+    --bg0: 61, 148, 204;
+    --bg: rgb(16, 73, 143);
+  }
+
+  /* 普通用户变量 */
+  .guard-level--0 {
+    --text-color: #fff;
+    --bg0: 134, 144, 138;
+    --bg: rgb(122, 123, 120);
+  }
+
+  /* 主播变量 */
+  .user-type--streamer {
+    --text-color: rgb(255, 228, 153);
+    --bg0: 209, 182, 38;
+  }
+
+  /* 房管变量 */
+  .user-type--mod {
+    --bg0: 51, 135, 127;
+  }
+
+  /** 礼物SC文本颜色变量 **/
+  /* 价格梯度如下：
+    1 -- RMB 30
+    2 -- RMB 50
+    3 -- RMB 100
+    4 -- RMB 500
+    5 -- RMB 1000
+    6 -- RMB 2000  */
+  /* --bg0: 用于填充普通礼物文字；
+   --bg1: 主色调用于填充高亮礼物背景、SC正文（下半）背景、礼物栏；
+   --bg2: 次色调用于填充SC信息（上半）背景 */
+  .event-price-rank--1 {
+    --bg0: rgb(128, 198, 255);
+    --bg1: rgb(46, 89, 167);
+    --bg2: rgb(138, 189, 230);
+  }
+
+  .event-price-rank--2 {
+    --bg0: rgb(115, 216, 230);
+    --bg1: rgb(0, 138, 143);
+    --bg2: rgb(132, 198, 207);
+  }
+
+  .event-price-rank--3 {
+    --bg0: rgb(138, 230, 181);
+    --bg1: rgb(2, 135, 96);
+    --bg2: rgb(141, 201, 169);
+  }
+
+  .event-price-rank--4 {
+    --bg0: rgb(247, 234, 148);
+    --bg1: rgb(230, 187, 0);
+    --bg2: rgb(236, 224, 147);
+  }
+
+  .event-price-rank--5 {
+    --bg0: rgb(255, 206, 128);
+    --bg1: rgb(225, 138, 59);
+    --bg2: rgb(242, 208, 153);
+  }
+
+  .event-price-rank--6 {
+    --bg0: rgb(255, 140, 150);
+    --bg1: rgb(186, 56, 45);
+    --bg2: rgb(230, 161, 167);
+  }
+
+  /** 互动信息颜色变量 **/
+  /* 进入直播间 */
+  .event--interaction.event-action--enter .message {
+    color: #fff;
+  }
+
+  /* 关注直播间 */
+  .event--interaction.event-action--follow .message {
+    color: rgb(255, 243, 102);
+  }
+
+  /* 分享直播间 */
+  .event--interaction.event-action--share .message {
+    color: rgb(166, 244, 255);
+  }
+
+  /* 特别关注直播间 */
+  .event--interaction.event-action--follow-special .message {
+    color: rgb(255, 185, 89);
+  }
+
+  /* 互相关注直播间 */
+  .event--interaction.event-action--follow-mutual .message {
+    color: rgb(255, 153, 168);
+  }
+
+  /* 点赞直播间 */
+  .event--like-click .message {
+    color: rgb(255, 148, 184);
+  }
+
+  /** 其他图标颜色 **/
+  /* 房管图标颜色 */
+  .event--message .mod-badge {
+    color: #fff;
+  }
+
+  /* 主播图标颜色 */
+  .event--message.user-type--streamer .meta svg {
+    color: #fff;
+  }
+
+  /* 高能用户设置（榜1、榜2、榜3） */
+  .current-rank {
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .current-rank.current-rank--1 {
+    background-color: rgb(210, 71, 53, 0.5);
+  }
+
+  .current-rank.current-rank--2 {
+    background-color: rgb(242, 94, 65, 0.5);
+  }
+
+  .current-rank.current-rank--3 {
+    background-color: rgb(230, 119, 98, 0.5);
+  }
+
+  /** 全局文字阴影 **/
+  /* 描边属性 */
+  /* 阴影颜色为 --shadow-color
+   阴影轻重档次分为以下四档：
+   特轻：--text-shadow-extralight 阴影度：1
+   轻：--text-shadow-extralight 阴影度：1.5
+   常规：--text-shadow-extralight 阴影度：2 */
+  .event {
+    --shadow-color: #000;
+    --text-shadow-extralight: 0 0 calc(var(--1px) * 1) var(--shadow-color),
+      0 0 calc(var(--1px) * 1) var(--shadow-color),
+      0 0 calc(var(--1px) * 1) var(--shadow-color);
+    --text-shadow-light: 0 0 calc(var(--1px) * 1.5) var(--shadow-color),
+      0 0 calc(var(--1px) * 1.5) var(--shadow-color),
+      0 0 calc(var(--1px) * 1.5) var(--shadow-color);
+    --text-shadow: 0 0 calc(var(--1px) * 2) var(--shadow-color),
+      0 0 calc(var(--1px) * 2) var(--shadow-color),
+      0 0 calc(var(--1px) * 2) var(--shadow-color);
+  }
+
+  /* 文字阴影 */
+  /* 常规阴影 */
+  .event .username,
+  .event--toast.event-show-as--normal .username {
+    text-shadow: var(--text-shadow);
+  }
+
+  /* 轻阴影 */
+  .event .message,
+  .event--superchat.event-show-as--normal .price,
+  .event--toast.event-show-as--normal .price,
+  .event--toast.event-show-as--normal .username::after,
+  .event-show-as--sticky {
+    text-shadow: var(--text-shadow-light);
+  }
+
+  /* 特轻阴影 */
+  .event--gift.event-show-as--normal.event-size--highlight .price,
+  .event--mvp.event-show-as--normal .price,
+  .event--red-envelope-start.event-show-as--normal .price {
+    text-shadow: var(--text-shadow-extralight);
+  }
+
+  /* 特殊阴影调整 */
+  /* .event--user-block,
+.event--room-mute-off,
+.event--room-name-update {
+  --shadow-color: rgb(227, 227, 227, 0.7);
+} */
+
+  /*** 弹幕样式 ***/
+  /** 总样式 **/
+  .event--message {
+    display: flex;
+    position: relative;
+    flex-flow: wrap;
+    padding-top: calc(var(--1px) * 0);
+    padding-bottom: calc(var(--1px) * 4);
+    /* background-color: rgba(var(--bg0), 0.8); */
+    color: var(--bg0);
+    /* border-radius: calc(var(--1px) * 8); */
+    border-radius: 0;
+    --avatar-size: calc(var(--size) * 2.25);
+  }
+
+  /** 信息栏样式 **/
+  .event--message .meta {
+    margin-top: calc(var(--1px) * -6);
+    gap: calc(var(--size) * 0.2);
+    line-height: 1.3;
+  }
+
+  /** 名字样式 **/
+  .event--message .username {
+    color: var(--text-color);
+  }
+
+  /** 头像样式 **/
+  .event--message .meta .sender-avatar {
+    top: calc(var(--1px) * 10);
+    margin-right: calc(var(--1px) * 5);
+    border-radius: calc(var(--1px) * 4);
+    /* box-shadow: 0 0 calc(var(--1px) * 4) calc(var(--1px) * 1.5) var(--bg); */
+  }
+
+  /** 正文样式 **/
+  .event--message .message {
+    position: relative;
+    width: 100%;
+    margin: calc(var(--size) * -0.4) 0 0 calc(var(--size) * 2.8);
+    /* color: #fff; */
+    color: var(--text-color, rgba(var(--bg0)));
+    --event-reply-text: rgb(193, 228, 233);
+    letter-spacing: calc(var(--1px) * -0.2);
+    line-height: 1.15;
+  }
+
+  /*** 互动消息样式 ***/
+  /** 总样式 **/
+  .event--interaction,
+  .event--like-click {
+    display: block;
+    padding: 0 calc(var(--1px) * 6);
+    /* background-color: rgba(178, 191, 195, 0.7); */
+    border-radius: calc(var(--1px) * 2);
+    --avatar-size: calc(var(--size) * 1.2);
+  }
+
+  /** 头像样式 **/
+  .event--interaction .avatar-wrap,
+  .event--like-click .avatar-wrap {
+    margin-right: calc(var(--1px) * 2);
+  }
+
+  /** 名字样式 **/
+  .event--interaction .username {
+    color: var(--text-color);
+  }
+
+  .event--like-click .username {
+    color: #fff;
+  }
+
+  /* 信息栏样式 */
+  .event--interaction .meta,
+  .event--like-click .meta {
+    margin-top: calc(var(--size) * 0.13);
+    gap: calc(var(--size) * 0.2);
+  }
+
+  /* 正文样式 */
+  .event--interaction .message,
+  .event--like-click .message {
+    font-size: calc(var(--size) * 0.8);
+  }
+
+  /* 修复点赞位置 */
+  svg.tabler-icon.tabler-icon-thumb-up-filled {
+    position: relative;
+    top: calc(var(--1px) * 2);
+  }
+
+  /*** 礼物部分 ***/
+  /** 普通礼物样式 **/
+  /* 总样式 */
+  .event--gift.event-show-as--normal.event-size--normal,
+  .event--red-envelope-start.event-show-as--normal.event-size--normal {
+    padding: calc(var(--1px) * 2) calc(var(--1px) * 8);
+    /* background-color: rgb(201, 192, 159); */
+    font-size: calc(var(--size) * 0.9);
+    --avatar-size: calc(var(--size) * 1.25);
+    border-radius: calc(var(--1px) * 2);
+  }
+
+  /* 信息栏样式 */
+  .event--gift.event-show-as--normal.event-size--normal .top,
+  .event--red-envelope-start.event-show-as--normal.event-size--normal .top {
+    gap: calc(var(--size) * 0.2);
+  }
+
+  /* 头像样式 */
+  .event--gift.event-show-as--normal.event-size--normal .avatar-wrap,
+  .event--red-envelope-start.event-show-as--normal.event-size--normal .avatar-wrap {
+    margin-right: calc(var(--1px) * 3);
+    border-radius: calc(var(--1px) * 4);
+    /* box-shadow: 0 0 calc(var(--1px) * 2) calc(var(--1px) * 1.5) var(--bg); */
+  }
+
+  /* 礼物图片样式 */
+  .event--gift.event-show-as--normal.event-size--normal .gift-image-wrap,
+  .event--red-envelope-start.event-show-as--normal.event-size--normal
+    .red-envelope-start-icon-wrap {
+    margin-top: calc(var(--1px) * -2);
+  }
+
+  /* 礼物内容样式 */
+  .event--gift.event-show-as--normal.event-size--normal .message,
+  .event--red-envelope-start.event-show-as--normal.event-size--normal .message {
+    margin-left: calc(var(--1px) * 4);
+  }
+
+  /* 普通礼物用户名颜色匹配用户身份 */
+  .event--gift.event-show-as--normal.event-size--normal .username {
+    color: var(--text-color);
+  }
+
+  /* 普通礼物显示匹配颜色梯度 */
+  .event--gift.event-show-as--normal.event-size--normal .message {
+    color: var(--bg0);
+  }
+
+  /** 高亮礼物&至尊礼物样式 **/
+  /* 总样式 */
+  /* 高亮礼物 */
+  .event--gift.event-show-as--normal.event-size--highlight {
+    /* background-color: var(--bg1); */
+    background-color: transparent;
+    color: var(--bg0);
+  }
+
+  /* 至尊礼物 */
+  /* .event--mvp.event-show-as--normal {
+} */
+
+  /* 内容样式（也是一种总样式） */
+  .event--gift.event-show-as--normal.event-size--highlight .content,
+  .event--mvp.event-show-as--normal .content,
+  .event--red-envelope-start.event-show-as--normal.event-size--highlight .content,
+  .event--lottery-start.event-show-as--normal .content {
+    padding-left: calc(var(--size) * 3);
+    padding-right: calc(var(--size) * 3.3);
+    border-radius: calc(var(--1px) * 4);
+    font-size: calc(var(--size) * 0.9);
+    --avatar-size: calc(var(--size) * 2.4);
+  }
+
+  /* 信息栏样式 */
+  .event--gift.event-show-as--normal.event-size--highlight .top,
+  .event--mvp.event-show-as--normal .top,
+  .event--red-envelope-start.event-show-as--normal.event-size--highlight .top,
+  .event--lottery-start.event-show-as--normal .top {
+    display: flex;
+    margin-top: calc(var(--1px) * -2);
+    /* color: #fff; */
+    line-height: 1.2;
+    gap: calc(var(--size) * 0.2);
+  }
+
+  /* 头像样式 */
+  /* 用户头像样式 */
+  .event--gift.event-show-as--normal.event-size--highlight .sender-avatar,
+  .event--mvp.event-show-as--normal .avatar-wrap,
+  .event--red-envelope-start.event-show-as--normal.event-size--highlight .avatar-wrap,
+  .event--lottery-start.event-show-as--normal .avatar-wrap {
+    position: absolute;
+    top: calc(var(--1px) * -2);
+    left: calc(var(--size) * 0);
+    border-radius: calc(var(--1px) * 4);
+    /* box-shadow: 0 0 calc(var(--1px) * 4) calc(var(--1px) * 2) var(--bg); */
+  }
+
+  /* 主播头像样式 */
+  .event--gift.event-show-as--normal.event-size--highlight .receiver-avatar {
+    margin-right: calc(var(--1px) * 2);
+  }
+
+  /* 价格样式 */
+  .event--gift.event-show-as--normal.event-size--highlight .price,
+  .event--mvp.event-show-as--normal .price,
+  .event--red-envelope-start.event-show-as--normal.event-size--highlight .price,
+  .event--lottery-start.event-show-as--normal .price {
+    position: absolute;
+    top: calc(var(--1px) * -4);
+    right: calc(var(--1px) * 0);
+    font-size: calc(var(--size) * 0.6);
+    color: var(--bg0);
+  }
+
+  /* 礼物图片样式 */
+  .event--gift.event-show-as--normal.event-size--highlight .gift-image-wrap img,
+  .event--mvp.event-show-as--normal .mvp-icon-wrap img,
+  .event--red-envelope-start.event-show-as--normal.event-size--highlight
+    .red-envelope-start-icon-wrap
+    img,
+  .event--lottery-start.event-show-as--normal .lottery-start-icon-wrap img {
+    position: relative;
+    top: calc(var(--size) * 0.4);
+    right: calc(var(--size) * -0.12);
+    height: calc(var(--size) * 2.2);
+    width: auto;
+  }
+
+  /* 礼物内容样式 */
+  .event--gift.event-show-as--normal.event-size--highlight .message,
+  .event--mvp.event-show-as--normal .message,
+  .event--red-envelope-start.event-show-as--normal.event-size--highlight .message,
+  .event--lottery-start.event-show-as--normal .message {
+    display: block;
+    font-size: var(--size);
+    line-height: 1.2;
+  }
+
+  /** 红包&天选时刻独立设置 **/
+  /* 红包内容调整 */
+  .event--red-envelope-start,
+  .event--red-envelope-result {
+    /* color: #fff; */
+    color: rgb(220, 80, 80) !important;
+    /* background-color: rgb(220, 80, 80) !important; */
+    background-color: transparent !important;
+  }
+
+  /* 内容字体均设置为白色 */
+  /* .event--red-envelope-start.event-show-as--normal .message,
+.event--red-envelope-result .message {
+  color: #fff;
+} */
+
+  /* 红包口令内容 */
+  .event--red-envelope-start.event-show-as--normal.event-size--highlight
+    .red-envelope-start-details-name {
+    display: block;
+  }
+
+  /* 天选时刻样式 */
+  .event--lottery-start,
+  .event--lottery-result {
+    /* background-color: rgb(71, 39, 194) !important; */
+    background-color: transparent !important;
+    color: rgb(107, 79, 218) !important;
+  }
+
+  .event--lottery-start .top .message {
+    font-size: calc(var(--size) * 0.9);
+  }
+
+  /* 自定义语句 */
+  .event--lottery-start.event-show-as--normal .lottery-start-details-message::before {
+    content: '口令：';
+  }
+
+  /* 通用内容调整 */
+  /* 中奖名单 */
+  .event--red-envelope-result .red-envelope-result-details-name,
+  .event--lottery-result .lottery-result-details-name {
+    margin: calc(var(--size) * -0.3) 0 calc(var(--size) * 0.3) 0;
+    font-size: calc(var(--size) * 0.9);
+    font-weight: 700;
+  }
+
+  /* 强行调整红包和天选的粗体字 */
+  .event--red-envelope-start.event-show-as--normal b,
+  .event--lottery-start.event-show-as--normal b {
+    font-weight: 500;
+  }
+
+  /*** SC 样式 ***/
+  /** 上半样式 **/
+  .event--superchat.event-show-as--normal .top {
+    position: relative;
+    align-items: flex-start;
+    padding-bottom: calc(var(--1px) * 6);
+    /* color: #fff; */
+    /* background-color: var(--bg2); */
+    background-color: transparent;
+    --avatar-size: calc(var(--size) * 1.6);
+  }
+
+  .event--superchat.event-show-as--normal .price {
+    color: var(--bg0);
+  }
+
+  /** 信息栏样式 **/
+  .event--superchat.event-show-as--normal .meta {
+    font-size: calc(var(--size) * 0.9);
+  }
+
+  .event--superchat.event-show-as--normal .username-wrap {
+    gap: calc(var(--size) * 0.15);
+  }
+
+  /** 头像样式 **/
+  .event--superchat.event-show-as--normal .avatar-wrap {
+    margin-right: calc(var(--1px) * 2);
+    border-radius: calc(var(--1px) * 4);
+    /* box-shadow: 0 0 calc(var(--1px) * 3) calc(var(--1px) * 1.5) var(--bg); */
+  }
+
+  /** 价格样式 **/
+  .event--superchat.event-show-as--normal .price {
+    position: absolute;
+    top: calc(var(--size) * 0.45);
+    right: calc(var(--size) * 0.8);
+  }
+
+  /** 下半样式 **/
+  .event--superchat.event-show-as--normal .message {
+    padding: calc(var(--1px) * 4) calc(var(--1px) * 6) calc(var(--1px) * 6)
+      calc(var(--1px) * 6);
+    /* color: #fff; */
+    color: var(--bg0);
+    font-size: calc(var(--size) * 1);
+    line-height: 1.3;
+    /* background-color: var(--bg1); */
+    background-color: transparent;
+  }
+
+  /* 翻译样式 */
+  .event--superchat.event-show-as--normal .message-translation {
+    margin-top: calc(var(--1px) * 2);
+    padding: calc(var(--1px) * 4);
+    background-color: rgb(0, 0, 0, 0.33);
+    /* border-radius: calc(var(--1px) * 4); */
+    font-size: calc(var(--size) * 0.8);
+  }
+
+  /** 时间样式（用于控制台） **/
+  .event--superchat .timestamp {
+    padding-left: calc(var(--1px) * 2);
+    color: #fff;
+    font-size: calc(var(--size) * 0.8);
+  }
+
+  .event--superchat .message-text::before {
+    content: '⚡';
+  }
+
+  /*** 舰长样式 ***/
+  /** 总样式 **/
+  .event--toast.event-show-as--normal {
+    position: relative;
+    padding-right: calc(var(--size) * 2.5);
+    align-items: flex-start;
+    font-size: calc(var(--size) * 0.9);
+    line-height: 1.2;
+    /* background-color: var(--bg); */
+    background-color: transparent;
+    color: var(--text-color);
+    --avatar-size: calc(var(--size) * 2.5);
+    --badge-size: calc(var(--size) * 2.5);
+    background-position: center right calc(var(--size) * 0.15);
+  }
+
+  /** 头像样式 **/
+  .event--toast.event-show-as--normal .avatar-wrap {
+    border-radius: calc(var(--1px) * 4);
+    /* box-shadow: 0 0 calc(var(--1px) * 4) calc(var(--1px) * 2) var(--bg); */
+  }
+
+  /** 内容样式 **/
+  /* 关闭部分上舰内容 */
+  .event--toast.event-show-as--normal .toast-details-total-days-text-before,
+  .event--toast.event-show-as--normal .toast-details-total-days,
+  .event--toast.event-show-as--normal .toast-details-total-days-text-after {
+    display: none;
+  }
+
+  /* 添加更简洁的上舰语句 */
+  /* 前面引号里的为固定语句，后面会根据上舰类型返回不同的语句（全局设置-用户身份变量），可修改 */
+  .event--toast.event-show-as--normal .toast-details-action::before {
+    content: '感谢';
+    margin-top: calc(var(--1px) * 4);
+    font-weight: 500;
+  }
+
+  /** 价格样式 **/
+  .event--toast.event-show-as--normal .price {
+    position: absolute;
+    right: calc(var(--size) * 2.7);
+    bottom: calc(var(--size) * 0.55);
+    font-size: calc(var(--size) * 0.7);
+  }
+
+  /** 内容样式 **/
+  .event--toast.event-show-as--normal .message {
+    font-size: calc(var(--size) * 1);
+  }
+
+  /*** 礼物条样式 ***/
+  /** 总样式 **/
+  .event-show-as--sticky,
+  .event-show-as--sticky :is(.content, .top, .meta, .message) {
+    margin: 0;
+    padding: 0 !important;
+    font-size: calc(var(--size) * 0.8);
+    line-height: 1.8 !important;
+    /* color: #fff; */
+    --avatar-size: calc(var(--size) * 1.2);
+    --badge-size: calc(var(--size) * 1.3);
+    --gift-size: calc(var(--size) * 1.3);
+  }
+
+  .event-show-as--sticky {
+    padding: 0 calc(var(--size) * 1.6) 0 0 !important;
+    /* border-radius: calc(var(--1px) * 8) !important; */
+    border-radius: 0;
+  }
+
+  /* 头像样式 */
+  .event-show-as--sticky .avatar-wrap {
+    margin-left: calc(var(--size) * 0.2);
+  }
+
+  /* 图标样式 */
+  .event-show-as--sticky
+    :is(
+      .gift-image-wrap,
+      .red-envelope-start-icon-wrap,
+      .lottery-start-icon-wrap,
+      .mvp-icon-wrap
+    ) {
+    position: absolute;
+    right: calc(var(--size) * -1.35);
+    margin-top: calc(var(--size) * 0.3);
+  }
+
+  .event-show-as--sticky .mvp-icon-wrap {
+    margin-top: calc(var(--size) * 0.1);
+  }
+
+  /* 颜色样式 */
+  .event-show-as--sticky:is(.event--gift, .event--superchat) {
+    /* background-color: var(--bg1) !important; */
+    background-color: transparent !important;
+    color: var(--bg1) !important;
+  }
+
+  .event--toast.event-show-as--sticky {
+    /* background-color: var(--bg); */
+    background-color: transparent !important;
+    color: var(--bg) !important;
+  }
+
+  /** SC样式 **/
+  .event-show-as--sticky.event--superchat {
+    padding-right: calc(var(--size) * 0.4) !important;
+  }
+
+  .event-show-as--sticky.event--superchat .top {
+    background: transparent !important;
+    color: var(--bg1) !important;
+  }
+
+  /** 舰长样式 **/
+  .event-show-as--sticky.event--toast {
+    background-position: calc(100% - 0.2em) center;
+  }
+
+  /*** 系统消息 ***/
+  /** 房间号样式 **/
+  .event--system {
+    color: #fff;
+    /* background-color: rgb(48, 48, 48, 0.6); */
+    background-color: transparent;
+    border-radius: calc(var(--1px) * 4);
+    font-size: calc(var(--size) * 0.8);
+  }
+
+  /** 禁言样式 **/
+  .event--user-block {
+    color: rgb(209, 49, 42);
+    /* background-color: rgb(201, 207, 193, 0.85); */
+    background-color: transparent;
+    border-left: calc(var(--1px) * 6) solid rgb(209, 49, 42);
+    /* border-radius: calc(var(--1px) * 4); */
+    border-radius: 0;
+    font-size: calc(var(--size) * 0.9);
+  }
+
+  /** 超管警告样式 **/
+  .event--live-warning {
+    color: rgb(245, 193, 120);
+    /* background-color: rgb(48, 48, 48, 0.85); */
+    background-color: transparent;
+    border-left: calc(var(--1px) * 6) solid rgb(245, 193, 120);
+    /* border-radius: calc(var(--1px) * 4); */
+    border-radius: 0;
+    font-size: calc(var(--size) * 0.9);
+  }
+
+  /** 切断直播样式 **/
+  .event--live-cutoff {
+    color: rgb(227, 64, 57);
+    /* background-color: rgb(48, 48, 48, 0.85); */
+    background-color: transparent;
+    border-left: calc(var(--1px) * 6) solid rgb(227, 64, 57);
+    /* border-radius: calc(var(--1px) * 4); */
+    border-radius: 0;
+    font-size: calc(var(--size) * 0.9);
+  }
+
+  /** 全局禁言样式 **/
+  .event--room-mute-on {
+    /* color: #fff; */
+    /* background-color: rgb(209, 49, 42, 0.85); */
+    background-color: transparent;
+    color: rgb(209, 49, 42);
+    border-left: calc(var(--1px) * 6) solid rgb(209, 49, 42);
+    /* border-radius: calc(var(--1px) * 4); */
+    border-radius: 0;
+    font-size: calc(var(--size) * 0.9);
+  }
+
+  /** 全局禁言关闭样式 **/
+  .event--room-mute-off {
+    color: rgb(201, 207, 193);
+    /* background-color: rgb(201, 207, 193, 0.85); */
+    background-color: transparent;
+    border-left: calc(var(--1px) * 6) solid rgb(201, 207, 193);
+    /* border-radius: calc(var(--1px) * 4); */
+    border-radius: 0;
+    font-size: calc(var(--size) * 0.9);
+  }
+
+  /** 直播间信息更新样式 **/
+  .event--room-name-update {
+    color: rgb(8, 126, 204);
+    /* background-color: rgb(201, 207, 193, 0.85); */
+    background-color: transparent;
+    border-left: calc(var(--1px) * 6) solid rgb(8, 126, 204);
+    /* border-radius: calc(var(--1px) * 4); */
+    border-radius: 0;
+    font-size: calc(var(--size) * 0.9);
+  }
+
+  .event--live-start {
+    color: rgb(255, 140, 150);
+    background-color: transparent;
+    border-left: calc(var(--1px) * 6) solid rgb(255, 140, 150);
+    /* border-radius: calc(var(--1px) * 4); */
+    border-radius: 0;
+    font-size: calc(var(--size) * 0.9);
+  }
+
+  .event--live-end {
+    /* color: rgb(61, 56, 65); */
+    background-color: transparent;
+    border-left: calc(var(--1px) * 6) solid rgb(61, 56, 65);
+    /* border-radius: calc(var(--1px) * 4); */
+    border-radius: 0;
+    font-size: calc(var(--size) * 0.9);
+  }
+
+  /** 给系统消息添加前置emoji **/
+  .event--user-block::before {
+    content: '🚫  ';
+  }
+
+  .event.event--live-warning::before {
+    content: '⚠️  ';
+  }
+
+  .event--live-cutoff::before {
+    content: '⛔  ';
+  }
+
+  /** 通用公告样式 **/
+  .event--notice {
+    display: block;
+    /* padding: calc(var(--1px) * 4) calc(var(--1px) * 8); */
+    font-size: calc(var(--size) * 0.8);
+    /* background-color: rgba(178, 191, 195, 0.7); */
+    border-radius: calc(var(--1px) * 4);
+  }
+
+  /* 一般文本 */
+  .event--notice .notice-text {
+    color: rgb(245, 243, 242) !important;
+  }
+
+  /* 强调文本 */
+  .event--notice .notice-highlight {
+    color: rgb(250, 192, 61) !important;
+  }
+
+  /*** 动画设置 ***/
+  /** 动画设置 **/
+  /* 进入动画 */
+  @keyframes enter {
+    0% {
+      transform: rotateX(-90deg);
+      transform-origin: top;
+      opacity: 0;
+    }
+
+    100% {
+      transform: rotateX(0deg);
+      transform-origin: top;
+      opacity: 1;
+    }
+  }
+
+  /* 指定时间淡出动画 */
+  @keyframes system_fade {
+    0% {
+      opacity: 1;
+    }
+
+    95% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  /** 关联动画 **/
+  /* 全局进入动画 */
+  .event {
+    animation: enter 0.4s;
+  }
+
+  /* 禁言类消息固定置底显示，15s后淡出 */
+  .in-obs .event--user-block,
+  .in-obs .event--room-mute-on,
+  .in-obs .event--room-mute-off {
+    position: sticky;
+    animation: system_fade 15s both;
+    bottom: 0%;
+  }
+
+  /* 超管警告、切断直播消息固定置底显示，30s后淡出 */
+  .in-obs .event.event--live-warning,
+  .in-obs .event--live-cutoff {
+    position: sticky;
+    animation: system_fade 30s both;
+    bottom: 0%;
+  }
+
+  /* 红包、天选时刻消息固定置底显示，30s后淡出 */
+  .in-obs .event--red-envelope-start.event-show-as--normal,
+  .in-obs .event--lottery-start.event-show-as--normal,
+  .in-obs .event--red-envelope-result,
+  .in-obs .event--lottery-result {
+    position: sticky;
+    animation: system_fade 30s both;
+    top: 0;
+    z-index: 6;
+  }
+
+  /*** 其他设置 ***/
+  /** 信息栏元素调整 **/
+  /* 元素顺序调整 */
+  /* 目前顺序为以下几个档位（优先级从上到下减弱）
+   1. 头像
+   2. 荣耀等级
+   3. 用户名
+   4. 粉丝牌
+   5. 舰长标、礼物图片
+   6. 房管标、主播标、高能用户
+   7. 价格 */
+  .avatar-wrap {
+    order: -3;
+  }
+
+  .wealth-medal {
+    order: -1;
+  }
+
+  .username {
+    order: 0;
+  }
+
+  .fans-medal {
+    order: 1;
+  }
+
+  .guard-badge,
+  .gift-image-wrap {
+    order: 2;
+  }
+
+  .mod-badge,
+  .streamer-badge,
+  .current-rank {
+    order: 3;
+  }
+
+  .price {
+    order: 4;
+  }
+
+  /* 荣耀等级 */
+  .wealth-medal img {
+    margin-top: calc(var(--1px) * 0);
+    width: calc(var(--1px) * 27);
+    height: calc(var(--1px) * 12);
+    border-radius: calc(var(--1px) * 100);
+    box-shadow: 0 0 calc(var(--1px) * 1.5) calc(var(--1px) * 0) #fff;
+  }
+
+  /* 用户等级 */
+  .user-level {
+    padding: 0 calc(var(--1px) * 2);
+    background-color: #fff;
+    font-size: calc(var(--size) * 0.7);
+  }
+
+  /* 用户名 */
+  .event--message .username,
+  .event--interaction .username,
+  .event--like-click .username {
+    font-size: calc(var(--size) * 0.8);
+  }
+
+  /* 粉丝牌 */
+  .fans-medal {
+    margin-top: calc(var(--1px) * -0.5);
+    font-size: calc(var(--size) * 0.7);
+  }
+
+  .fans-medal:not(.fans-medal-lightened--0) {
+    opacity: 0.85;
+  }
+
+  /* 高能用户 */
+  .current-rank {
+    padding: calc(var(--1px) * 1) calc(var(--1px) * 3);
+    font-size: calc(var(--size) * 0.6);
+    border-radius: calc(var(--1px) * 4);
+  }
+
+  /** 标志特殊定位 **/
+  /* 房管&主播标志 */
+  .mod-badge,
+  .streamer-badge {
+    position: absolute;
+    right: calc(var(--size) * 0.2);
+    width: calc(var(--size) * 1.2);
+    height: calc(var(--size) * 1.2);
+    border-radius: calc(var(--1px) * 4.5);
+  }
+
+  /* 舰长图标 */
+  .guard-badge {
+    position: absolute;
+    left: calc(var(--size) * 2.2);
+    top: calc(var(--size) * 1.9);
+    width: calc(var(--size) * 0.85);
+    height: calc(var(--size) * 0.85);
+    background-color: #fff;
+    /* border-radius: calc(var(--1px) * 4.5); */
+    box-shadow: 0 0 calc(var(--1px) * 1) calc(var(--1px) * 1.5) var(--bg);
+  }
+
+  /** 关闭舰长边框 **/
+  .event .avatar-frame {
+    display: none;
+  }
+
+  /** 关闭粉丝牌中的舰长标 **/
+  /* 隐藏后面舰长图标，保留粉丝牌舰长标志 */
+  .event .fans-medal .guard-badge {
+    display: none;
+  }
+
+  /* 调整无舰长标志的粉丝牌样式 */
+  .event .fans-medal-content {
+    padding: 0;
+  }
+
+  /** 调整粉丝牌样式 **/
+  .fans-medal {
+    padding: 0 calc(var(--1px) * 2.5);
+    font-weight: 500;
+    border-radius: calc(var(--1px) * 2);
+    line-height: 1.2;
+    font-size: calc(var(--size) * 0.7);
+  }
+
+  .fans-medal-level {
+    margin: 0;
+    padding: 0;
+    margin-left: calc(var(--1px) * 2);
+    padding-left: calc(var(--1px) * 2);
+    /* border-radius: calc(var(--1px) * 2); */
+    border-radius: 0;
+    border-left: var(--medal-border-color) calc(var(--1px)) solid;
+    color: #fff;
+    background-color: transparent;
+    font-size: calc(var(--size) * 0.7);
+    line-height: 1.2;
+  }
+
+  .medal_fansMedalHasGuard__o2q7B .medal_fansMedalContent__7VXHO {
+    padding-left: 0;
+  }
+
+  .medal_fansMedalType1__u7gvd
+    :is(.medal_fansMedalHasGuard__o2q7B .medal_fansMedalContent__7VXHO) {
+    padding-left: 0;
+  }
+
+  /** 调整小表情（b站emoji） **/
+  .bmote-wrap img {
+    width: calc(var(--size) * 1.2);
+    height: auto;
+    margin: 0 calc(var(--1px) * 1);
+    line-height: 1.2;
+  }
+}
