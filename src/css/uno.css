@@ -29,13 +29,13 @@
 .w-16px{width:16px;}
 .w-2560px{width:2560px;}
 .w-3072px{width:3072px;}
+.w-400px{width:400px;}
 .w-fit{width:fit-content;}
 .w-inherit{width:inherit;}
 .\[\&\>\*\]\:flex>*,
 .flex{display:flex;}
 .flex-1{flex:1 1 0%;}
 .flex-col{flex-direction:column;}
-.transform{transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
 .\!animate-duration-8000{animation-duration:8000ms !important;}
 .items-center{align-items:center;}
 .\[\&\>\*\]\:gap-4>*,
@@ -65,6 +65,7 @@
 .pb-4px{padding-bottom:4px;}
 .pt-0{padding-top:0;}
 .pt-4px{padding-top:4px;}
+.pt-8px{padding-top:8px;}
 .text-align-end{text-align:end;}
 .text-26px{font-size:26px;}
 .text-27px{font-size:27px;}
@@ -74,5 +75,4 @@
 .color-op-90{--un-text-opacity:0.9;}
 .font-bold{font-weight:700;}
 .font-normal{font-weight:400;}
-.file-tab::file-selector-button{-moz-tab-size:4;-o-tab-size:4;tab-size:4;}
 .filter-brightness-80{--un-brightness:brightness(0.8);filter:var(--un-blur) var(--un-brightness) var(--un-contrast) var(--un-drop-shadow) var(--un-grayscale) var(--un-hue-rotate) var(--un-invert) var(--un-saturate) var(--un-sepia);}
