@@ -10,4 +10,10 @@
     ],
     'example-2': [['If you made the text on the left disappear,', 'You got it!']],
   }
+  globalThis.copyrightAnnounceData = [
+    '',
+    'Your name',
+    'https://live.bilibili.com/8333250',
+    'github.com/lgc2333/stream-cover',
+  ]
 })()

@@ -3,7 +3,8 @@ main {
   height: 1080px;
   overflow: hidden;
   position: relative; /* for bg */
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
+  background-image: var(--bg-image);
 }
 
 .content {
