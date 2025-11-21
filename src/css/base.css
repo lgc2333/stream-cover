@@ -5,7 +5,8 @@
   --rd-inv-br-path: 'M12,0 A12,12 0 0,1 0,12 L12,12 Z';
 
   /* --bg-color: #fcd7a2; */
-  --bg-image: linear-gradient(225deg, #e0b373 0%, #ffd79c 100%);
+  --bg-image: radial-gradient(35% 35% at bottom center, #ffe87d, transparent),
+    linear-gradient(35.5deg, #fff2d0, #ffdb81 40%, #ffcc55 100%);
 }
 
 body {
@@ -25,6 +26,7 @@ body {
   position: absolute;
   background-position: 60px 0;
   /* left: -30px; */
+  z-index: 1;
 }
 .bg-deco.up {
   top: 0;
@@ -39,10 +41,10 @@ body {
 
 @keyframes bg-deco {
   from {
-    background-position: 90px 0;
+    background-position: 0 0;
   }
   to {
-    background-position: 0 0;
+    background-position: 90px 0;
   }
 }
 .bg-deco.anim {
@@ -58,17 +60,17 @@ body {
   /* background-image: url('../assets/bg-slash.svg'); */
   background-image: url('../assets/bg-pattern.png');
   background-size: 200px;
-  opacity: 0.5;
+  opacity: 0.75;
   background-repeat: repeat;
   /* background-position: 45px 45px; */
 }
 
 @keyframes bg-slash {
   from {
-    background-position: 200px 0;
+    background-position: 0 0;
   }
   to {
-    background-position: 0 200px;
+    background-position: 200px 200px;
   }
 }
 .bg-slash.anim {
