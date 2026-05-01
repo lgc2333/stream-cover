@@ -18,6 +18,7 @@
 .box-border{box-sizing:border-box;}
 .box-content{box-sizing:content-box;}
 .\[\&\>\*\]\:w-max>*{width:max-content;}
+.h-1080px{height:1080px;}
 .h-1440px{height:1440px;}
 .h-160px{height:160px;}
 .h-16px{height:16px;}
@@ -28,6 +29,7 @@
 .h-inherit{height:inherit;}
 .w-10px{width:10px;}
 .w-16px{width:16px;}
+.w-1920px{width:1920px;}
 .w-2560px{width:2560px;}
 .w-3072px{width:3072px;}
 .w-400px{width:400px;}
@@ -38,6 +40,8 @@
 .flex{display:flex;}
 .flex-1{flex:1 1 0%;}
 .flex-col{flex-direction:column;}
+.origin-top-left{transform-origin:top left;}
+.scale-\[calc\(3072\/1920\)\]{--un-scale-x:calc(3072 / 1920);--un-scale-y:calc(3072 / 1920);transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
 .\!animate-duration-8000{animation-duration:8000ms !important;}
 .items-end{align-items:flex-end;}
 .items-center{align-items:center;}
