@@ -16,6 +16,10 @@ body {
   background-color: transparent;
 }
 
+#songinfo {
+  padding: 0;
+}
+
 #songinfo > p.text-lg {
   font-size: 1.2rem;
 }
@@ -25,9 +29,9 @@ body {
   font-weight: 600;
 }
 
-#songinfo,
+/* centered visual compensation caused by title line height*/
 #songtime {
-  padding: 0;
+  padding: 0 0 4px 0;
 }
 
 [class*='drop-shadow-'] {

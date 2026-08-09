@@ -8,4 +8,4 @@ plugins:
   - prettier-plugin-merge
 
 # classnames
-endingPosition: absolute-with-indent
+# endingPosition: absolute-with-indent
