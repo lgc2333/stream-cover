@@ -13,7 +13,7 @@
     // 'example-2': [['If you made the text on the left disappear,', 'You got it!']],
   }
   globalThis.copyrightAnnounceData = [
-    'LgCookie & Misght',
+    'LgCuwukii & Misght',
     'Bilibili Live 8333250 & 8044503',
     '背景设计 @浅明忆想 | 装修开源地址↓',
     'github.com/lgc2333/stream-cover',

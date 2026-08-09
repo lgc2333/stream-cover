@@ -1,7 +1,7 @@
 /*
   @title        饼干的LAPLACE Chat样式
   @description  基于 橙子色块 二次开发
-  @author       橙橙子君 & LgCookie
+  @author       橙橙子君 & LgCuwukii
   @updated      September 8, 2025, 0:00:00 AM CST
   @version      1.0.0
   @thumbnail    https://raw.githubusercontent.com/lgc2333/stream-cover/refs/heads/main/laplace/main.png
@@ -9,11 +9,11 @@
 */
 
 /* 引用在线字体 */
-@import url('https://blog.lgc2333.top/css/fonts/harmony-os-sans-sc/index.css');
+@import url('https://lgck.cc/assets/lgc-fonts.css');
 
 @layer remote-css {
   /* 全局背景透明，可保证 OBS 载入弹幕机的过程中背景全程透明 */
-  body {
+  body { 
     background-color: rgba(0, 0, 0, 0);
     margin: 0;
     padding: 0;
@@ -24,7 +24,7 @@
   /* 建议使用免费可商用字体、避免版权问题 */
   /* 注意考虑弹幕多语言问题（简、繁、日语），添加备用字体，建议最后添加全语言字体（如思源系列、阿里巴巴普惠体）保底 */
   .event {
-    --event-font-family: 'HarmonyOS Sans SC', var(--fontstack-sans-serif);
+    --event-font-family: 'HarmonyOS Sans SC', 'HarmonyOS Sans LgCuwukii', var(--fontstack-sans-serif);
     font-size: var(--size);
     /* 基准字号自定义变量 */
     --size: var(--event-font-size);
